@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 // use App\Models\User;
 use App\Models\ProductLine;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +33,26 @@ use App\Models\ProductLine;
 $factory->define(ProductLine::class, function (Faker $faker) {
 	return [
 		'productLine' => $faker->ean8(),
-        'textDescription' => $faker->sentence($nbWords = 6, $variableNbWords = true) ,
+        'textDescription' => $faker->sentence($nbWords = 6, $variableNbWords = true),
         'htmlDescription' => $faker->randomHtml(2,3),
         'images' => $faker->imageUrl($width = 640, $height = 480),
 	];
 });
+
+$factory->define(Product::class, function (Faker $faker) {
+	$productLine = DB::table('productlines')->pluck('productLine');
+
+	return [
+		'productCode' => $faker->isbn13(),
+        'productName' => $faker->name(),
+        'productLine' => $faker->randomElement($productLine),
+        'productScale' => $faker->text($maxNbChars = 100),
+        'productVendor' => $faker->catchPhrase(),
+        'productDescription' => $faker->sentence($nbWords = 6, $variableNbWords = true),
+        'quantityInStock' => $faker->numberBetween($min = 1000, $max = 9000),
+        'buyPrice' => $faker->numberBetween($min = 10, $max = 200),
+        'MSRP' => $faker->numberBetween($min = 40000, $max = 50000)
+	];
+});
+
+

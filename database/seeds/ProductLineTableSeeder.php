@@ -13,7 +13,7 @@ class ProductLineTableSeeder extends Seeder
     public function run()
     {
     	// factory
-    	// factory(ProductLine::class, 10)->create();
+    	factory(ProductLine::class, 10)->create();
 
         // QueryBuilder
         // DB::table('productlines')->insert([

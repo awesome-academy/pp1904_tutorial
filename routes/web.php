@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
+	// $productLine = DB::table('productlines')->pluck('productLine');
+	// dd($productLine);
     return view('welcome');
 });
