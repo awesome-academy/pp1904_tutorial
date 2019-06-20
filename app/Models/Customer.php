@@ -1,11 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
+    protected $table = 'customers';
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -26,4 +28,14 @@ class Customer extends Model
         'saleRepEmployeeNumber',
         'creditLimit'
     ];
+
+    public function payments()
+    {
+        return $this->hasMany(Customer::class, 'customerNumber');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'customerNumber');
+    }
 }

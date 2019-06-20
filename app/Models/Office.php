@@ -1,11 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Office extends Model
 {
+    protected $table = 'offices';
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -22,4 +24,9 @@ class Office extends Model
         'postCode',
         'temitory'
     ];
+
+    public function employees()
+    {
+        return $this->hasMany(Employee::class, 'officeCode');
+    }
 }

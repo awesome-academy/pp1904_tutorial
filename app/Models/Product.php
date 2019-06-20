@@ -1,11 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $table = 'products';
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -22,4 +24,9 @@ class Product extends Model
         'buyPrice',
         'MSRP'
     ];
+
+    public function orderdetails()
+    {
+        return $this->hasMany(Order::class, 'productCode');
+    }
 }
