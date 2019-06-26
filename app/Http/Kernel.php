@@ -41,6 +41,10 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
+        'awesome' => [
+            'checkage' => \App\Http\Middleware\CheckAge::class,
+            'cerfiticate' => \App\Http\Middleware\Cerfiticate::class,
+        ],
     ];
 
     /**
@@ -60,6 +64,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'checkage' => \App\Http\Middleware\CheckAge::class,
+        'cerfiticate' => \App\Http\Middleware\Cerfiticate::class,
     ];
 
     /**

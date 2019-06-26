@@ -12,7 +12,38 @@
 */
 
 Route::get('/', function () {
+    return view('welcome');
+
 	// $productLine = DB::table('productlines')->pluck('productLine');
 	// dd($productLine);
-    return view('welcome');
+})->name('home');
+
+Route::prefix('duongbo')->group(function () {
+	Route::middleware(['awesome'])->group(function () {
+		Route::get('phamhung/{age}-{cer}/xemay/{type?}', function ($age, $cer, $type = null) {
+			return 'Tôi đang di chuyển trên đường Phạm Hùng bằng xe máy: ' . $type;
+		});
+		Route::get('phamhung/{age}-{cer}/xemay', function ($age, $cer) {
+			return 'Tôi đang di chuyển trên đường Phạm Hùng bằng xe máy';
+		});
+
+		Route::get('duongdinhnghe/{age}-{cer}/xemay', function ($age, $cer) {
+			return 'Tôi đang di chuyển trên đường Dương Đình Nghệ bằng xe máy';
+		});
+	});
+
+	Route::get('phamhung', function () {
+		return 'Tôi đang di chuyển trên đường Phạm Hùng';
+	});
+	Route::get('duongdinhnghe', function () {
+		return 'Tôi đang di chuyển trên đường Dương Đình Nghệ';
+	});
 });
+
+Route::get('songhong', function () {
+	return 'Tôi đang di chuyển trên Sông Hồng';
+});
+
+
+
+
