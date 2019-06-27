@@ -1,0 +1,5 @@
+@extends('admin')
+
+@include('js')
+
+
