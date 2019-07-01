@@ -3,6 +3,9 @@
 @section('title', 'Trang chủ')
 @section('scripts')
 	<script type="text/javascript">2</script>
+	{{ HTML::script('js/functions.js', ['async' => 'async']) }}
+
+	<script src="{{ mix('/js/app.js') }}"></script>
 @endsection
 @section('stylesheet')
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
