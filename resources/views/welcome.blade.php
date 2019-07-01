@@ -68,12 +68,13 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">{{ __('blog.home') }}</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">{{ trans('blog.login') }}
+</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">@lang('blog.register')</a>
                         @endif
                     @endauth
                 </div>
@@ -81,18 +82,31 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    {{ trans('blog.laravel') }}
+                </div>
+                <div>
+                    <select>
+                        <option>{{ trans('blog.language_en') }}</option>
+                        <option>{{ trans('blog.language_vi') }}</option>
+                    </select>
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://laravel.com/docs">{{ trans('blog.docs') }}</a>
+                    <a href="https://laracasts.com">{{ trans('blog.laracasts') }}</a>
+                    <a href="https://laravel-news.com">{{ trans('blog.news') }}</a>
+                    <a href="https://blog.laravel.com">{{ trans('blog.blog') }}</a>
+                    <a href="https://nova.laravel.com">{{ trans('blog.nova') }}</a>
+                    <a href="https://forge.laravel.com">{{ trans('blog.forge') }}</a>
+                    <a href="https://github.com/laravel/laravel">{{ trans('blog.github') }}</a>
                 </div>
+
+                <ul>
+                    <li>{{ trans('blog.menu.product_1') }}</li>
+                    <li>{{ trans('blog.menu.product_2') }}</li>
+                    <li>{{ trans('blog.menu.product_3') }}</li>
+                    <li>{{ trans('blog.menu.product_4') }}</li>
+                </ul>
             </div>
         </div>
     </body>
