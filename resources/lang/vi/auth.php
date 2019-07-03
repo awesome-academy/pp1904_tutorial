@@ -16,8 +16,8 @@ return [
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
-    'Change Password' => 'Change Pass',
+    'Change Password' => 'Đổi mật khẩu',
 
-    'min_password' => 'The password min 8.',
+    'min_password' => 'Mật khẩu phải lớn hơn 8 kí tự',
 
 ];

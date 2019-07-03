@@ -60,3 +60,9 @@ Route::resource('cars', 'CarController');
 
 
 
+
+Auth::routes();
+Route::get('/changepass', 'ChangePassController@changePass')->name('changepass');
+Route::post('/changepass', 'ChangePassController@changePassSubmit');
+
+Route::get('/home', 'HomeController@index')->name('home');
